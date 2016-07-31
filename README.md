@@ -7,11 +7,19 @@ to backup my files.
 ## install
 
 ```sh
-git clone git@github.com:idelsink/rc-backups.git && \
-cd rc-backups && \
-sudo dnf install ruby && \
-gem install iniparse optparse colorize fileutils && \
-./rc-backup/rc-backup ./rc-backup.ini -r
+git clone git@github.com:idelsink/rc-backups.git
+# or
+git clone https://github.com/idelsink/rc-backups.git
+
+cd rc-backups
+sudo dnf install ruby
+# or
+sudo apt-get install ruby
+
+sudo gem install iniparse OptionParser colorize fileutils
+
+# restore settings
+./rc-backup/rc-backup.rb ./rc-backup.ini -r
 ```
 
 ## side note
