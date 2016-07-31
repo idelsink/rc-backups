@@ -1,0 +1,8 @@
+[user]
+	name = Ingmar Delsink
+	email = ingmardelsink@hotmail.com
+	signingkey = 6EF46E6E
+[commit]
+	gpgsign = true
+[push]
+	default = simple
