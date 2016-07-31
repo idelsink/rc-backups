@@ -1,4 +1,4 @@
-# rc-backup
+# rc-backups
 
 My personal configuration backup repository.  
 I'm using [rc-backup](https://github.com/idelsink/rc-backup)
