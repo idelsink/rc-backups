@@ -150,8 +150,10 @@ class RCbackup
                                     if file_exists(backup_file)
                                         # check if file in original exists
                                         if ! file_exists(original_backup)
-                                            puts "making backup of original file -> "+"#{original_backup}".green
-                                            copy_with_path(file, original_backup)
+                                            if file_exists(file)
+                                                puts "making backup of original file -> "+"#{original_backup}".green
+                                                copy_with_path(file, original_backup)
+                                            end
                                         end
                                         # copy backup to file (overwrite? yes?)
                                         puts "restore "+"'#{file}'".blue+" <- "+"'#{backup_file}'".light_cyan
@@ -181,8 +183,10 @@ class RCbackup
                                     if file_exists(backup_file)
                                         # check if file in original exists
                                         if ! file_exists(original_backup)
-                                            puts "making backup of original file -> "+"#{original_backup}".green
-                                            copy_with_path(file, original_backup)
+                                            if file_exists(file)
+                                                puts "making backup of original file -> "+"#{original_backup}".green
+                                                copy_with_path(file, original_backup)
+                                            end
                                         end
                                         # copy backup to file (overwrite? yes?)
                                         puts "restore "+"'#{file}'".blue+" <- "+"'#{backup_file}'".light_cyan
@@ -254,5 +258,5 @@ begin
     end
 rescue Exception => e
     puts e.message
-    #puts e.backtrace.inspect
+    puts "backtrace:\n\t#{e.backtrace.join("\n\t")}"
 end
