@@ -3,8 +3,8 @@
 A simple tool to backup and restore configuration files to a certain directory.
 
 This can be useful to synchronize configuration files files
-via some kind of version control system.
-For example GIT.  
+via some kind of version control system.  
+Like git for example.  
 
 ## Usage
 
@@ -17,9 +17,11 @@ Usage: rc-backup.rb [options] config.ini
         --version                    show version
 ```
 
-Make your own repo,
-include this as a submodule or just an folder
-and setup a configuration file that will sit inside the git repository.
+### Example of use case
+
+Make your own repository (git?), 
+include this as a submodule or just as a folder
+and setup a configuration file that will sit inside that repository.
 
 Whenever you want to backup run
 
@@ -39,20 +41,21 @@ and run:
 This will backup all original files to a hidden folder in the script directory
 and then it will restore all the backups to their relative places.
 
+See also my repository for the usage of this: [github.com/idelsink/rc-backups](https://github.com/idelsink/rc-backups)
+
 ## Setup
 
 ```sh
 git clone https://github.com/idelsink/rc-backup.git         # download the repository
 sudo apt-get install ruby                                   # install ruby
 sudo dnf install ruby                                       # or for rpm based machines
-gem install iniparse optparse colorize fileutils            # install ruby packages `iniparse`, `optparse`, `colorize` and `fileutils`.
+sudo gem install iniparse OptionParser colorize fileutils   # install ruby packages `iniparse`, `OptionParser`, `colorize` and `fileutils`.
 ```
 
 Setup a backup location with the configuration file.  
 An example file can be generated with the following command:
 
 ```sh
-touch path_to_dir/rc-backup.ini
 ./rc-backup --generate-config > path_to_dir/rc-backup.ini
 ```
 
