@@ -20,6 +20,9 @@ sudo gem install iniparse OptionParser colorize fileutils
 
 # restore settings
 ./rc-backup/rc-backup.rb ./rc-backup.ini -r
+
+# set alias in .bash_aliases_system
+alias   rc-backup='~/dir_to_repo/rc-backups/rc-backup/rc-backup.rb ~/dir_to_repo/rc-backups/rc-backup.ini'
 ```
 
 ## side note
