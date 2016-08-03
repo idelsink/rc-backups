@@ -7,11 +7,13 @@ alias   mv='mv -i'
 alias   ls='ls --color'
 alias   ll='ls -lh --color'
 alias   la='ll -a --color'
+alias   less='less --raw-control-chars'
 
 # I did an oopsie
 alias   fuck='sudo $(history -p \!\!)'
 
 # some bash stuff
+alias   reload-bashrc='. ~/.bashrc'
 alias   dirs='dirs -v'
 
 # include aliases with specific system aliases
