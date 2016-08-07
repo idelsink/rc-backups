@@ -80,10 +80,10 @@ class RCbackup
     end
 
     private
-    @_home
-    @_backup_dir
-    @_config_file
-    @_ini
+    @_home=0
+    @_backup_dir=0
+    @_config_file=0
+    @_ini=0
     def file_exists(file)
         return File.exist?(file)
     end
@@ -98,7 +98,7 @@ class RCbackup
     def copy_with_path(src, dst, overwrite=false)
         FileUtils.mkdir_p(File.dirname(dst))
         if overwrite
-            FileUtils.copy_entry(src, dst, remove_destination=true)
+            FileUtils.copy_entry(src, dst, true)
         else
             FileUtils.cp(src, dst)
         end
