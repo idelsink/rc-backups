@@ -1,6 +1,6 @@
 # rc-backups
 
-My personal configuration backup repository.  
+My personal configuration backup/scripts repository.  
 I'm using [rc-backup](https://github.com/idelsink/rc-backup)
 to backup my files.
 
@@ -27,8 +27,10 @@ alias   rc-backup='~/dir_to_repo/rc-backups/rc-backup/rc-backup.rb ~/dir_to_repo
 
 ## side note
 
-I do not intend to has this as a nicely laid out repository.  
-I'm sure that all my commit messages will be short and not that interesting.  
+I do not intend to keep this as a nicely laid out repository.  
+This is purely functional to backup my settings and possible share my scripts.
+
+I'm sure that all my commit messages will be short and not interesting.  
 For That reason, please don't judge.
 
 ## License
