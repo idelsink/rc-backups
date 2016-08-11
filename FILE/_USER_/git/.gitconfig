@@ -1,8 +1,25 @@
 [user]
-	name = Ingmar Delsink
-	email = ingmardelsink@hotmail.com
-	signingkey = 6EF46E6E
+    name = Ingmar Delsink
+    email = ingmardelsink@hotmail.com
+    signingkey = 6EF46E6E
+
+[alias]
+    # I would greatly appreciate it if you kindly give me some status
+    st = status
+
 [commit]
-	gpgsign = true
+    gpgsign = true
+
 [push]
-	default = simple
+    default = simple
+
+[core]
+    editor = vim
+    pager = less
+
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
