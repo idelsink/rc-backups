@@ -9,6 +9,9 @@ alias   ll='ls -lh --color'
 alias   la='ll -a --color'
 alias   less='less --raw-control-chars'
 
+# let out my inner child!
+alias   boop='touch'
+
 # I did an oopsie
 alias   fuck='sudo $(history -p \!\!)'
 
