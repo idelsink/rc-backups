@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 ##########################################################################
 # script name: rc-backup
-# script version: 1.0.0
+# script version: 1.1.0
 # script date: 30 Juli 2016
 # website: https://github.com/idelsink/rc-backup
 ##########################################################################
@@ -97,10 +97,12 @@ class RCbackup
     end
     def copy_with_path(src, dst, overwrite=false)
         FileUtils.mkdir_p(File.dirname(dst))
-        if overwrite
+        if overwrite == true
             FileUtils.copy_entry(src, dst, true)
         else
-            FileUtils.cp(src, dst)
+            if ! File.file?(dst)
+                FileUtils.cp(src, dst)
+            end
         end
     end
     def process_backup(backup)
@@ -142,8 +144,11 @@ class RCbackup
                                     if ! hash.fetch("backup", "") == false
                                         if file_exists(file)
                                             puts "backup "+"'#{file}'".light_cyan+" -> "+"#{backup_file}".blue
-                                            # copy file to backup (overwrite? yes)
-                                            copy_with_path(file, backup_file, true)
+                                            if hash.fetch("overwrite-backup", "") == false # don't overwrite backup
+                                                copy_with_path(file, backup_file)
+                                            else # overwrite backup
+                                                copy_with_path(file, backup_file, true)
+                                            end
                                         else
                                             puts "file '#{file} does not exists'".red
                                         end
@@ -161,7 +166,11 @@ class RCbackup
                                             end
                                             # copy backup to file (overwrite? yes?)
                                             puts "restore "+"'#{file}'".blue+" <- "+"'#{backup_file}'".light_cyan
-                                            copy_with_path(backup_file, file, true)
+                                            if hash.fetch("overwrite-restore", "") == false # don't overwrite to be restored file
+                                                copy_with_path(backup_file, file)
+                                            else # overwrite to be restored file
+                                                copy_with_path(backup_file, file, true)
+                                            end
                                         else
                                             puts "backup '#{backup_file} does not exists'".red
                                         end
@@ -179,8 +188,11 @@ class RCbackup
                                 if backup # backup
                                     if file_exists(file)
                                         puts "backup "+"'#{file}'".light_cyan+" -> "+"#{backup_file}".blue
-                                        # copy file to backup (overwrite? yes)
-                                        copy_with_path(file, backup_file, true)
+                                        if hash.fetch("overwrite-backup", "") == false # don't overwrite backup
+                                            copy_with_path(file, backup_file)
+                                        else # overwrite backup
+                                            copy_with_path(file, backup_file, true)
+                                        end
                                     else
                                         puts "file '#{file} does not exists'".red
                                     end
@@ -193,9 +205,12 @@ class RCbackup
                                                 copy_with_path(file, original_backup)
                                             end
                                         end
-                                        # copy backup to file (overwrite? yes?)
                                         puts "restore "+"'#{file}'".blue+" <- "+"'#{backup_file}'".light_cyan
-                                        copy_with_path(backup_file, file, true)
+                                        if hash.fetch("overwrite-restore", "") == false # don't overwrite to be restored file
+                                            copy_with_path(backup_file, file)
+                                        else # overwrite to be restored file
+                                            copy_with_path(backup_file, file, true)
+                                        end
                                     else
                                         puts "backup '#{backup_file} does not exists'".red
                                     end
@@ -229,6 +244,8 @@ OptionParser.new do |opts|
             ";disable=false               ; set this to true and this section will be disabled/ignored",
             ";backup=true                 ; set this to false to disable backup of this section",
             ";restore=true                ; set this to false to disable restore of this section",
+            ";overwrite-restore=true      ; set this to false to disable overwrite on restore",
+            ";overwrite-backup=true       ; set this to false to disable overwrite on backup",
             ";file=\"~/.bashrc\"            ; example of a use case",
             ";file=\"/home/user/.bashrc\"   ; this yields the same result as above"
         ].join("\n") + "\n"
