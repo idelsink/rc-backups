@@ -22,7 +22,10 @@ sudo gem install iniparse OptionParser colorize fileutils
 ./rc-backup/rc-backup.rb ./rc-backup.ini -r
 
 # set alias in .bash_aliases_system
-alias   rc-backup='~/dir_to_repo/rc-backups/rc-backup/rc-backup.rb ~/dir_to_repo/rc-backups/rc-backup.ini'
+rc_backup_location="${HOME}/dir_to_repo"
+alias   rc-backup='${rc_backup_location}/rc-backup/rc-backup.rb ${rc_backup_location}/rc-backup.ini'
+alias   rc-backup-restore='${rc_backup_location}/rc-backup/rc-backup.rb ${rc_backup_location}/rc-backup.ini -r'
+alias   rc-backup-cd='cd ${rc_backup_location}'
 ```
 
 ## side note
