@@ -37,10 +37,10 @@
   }, 
   "5": {
     "titles": [
-      "Directory"
+      "Disc"
     ], 
     "tags": [
-      "directory"
+      "discnumber"
     ]
   }, 
   "4": {
@@ -52,6 +52,6 @@
     ]
   }, 
   "panel": {
-    "numrows": "5"
+    "numrows": "6"
   }
 }
