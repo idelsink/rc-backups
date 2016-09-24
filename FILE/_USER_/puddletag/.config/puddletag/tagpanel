@@ -37,10 +37,10 @@
   }, 
   "5": {
     "titles": [
-      "Disc"
+      "Album Artist"
     ], 
     "tags": [
-      "discnumber"
+      "albumartist"
     ]
   }, 
   "4": {
@@ -51,7 +51,23 @@
       "comment"
     ]
   }, 
+  "7": {
+    "titles": [
+      "Disc"
+    ], 
+    "tags": [
+      "discnumber"
+    ]
+  }, 
+  "6": {
+    "titles": [
+      "Composer"
+    ], 
+    "tags": [
+      "composer"
+    ]
+  }, 
   "panel": {
-    "numrows": "6"
+    "numrows": "8"
   }
 }

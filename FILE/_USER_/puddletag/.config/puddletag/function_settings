@@ -1,12 +1,12 @@
 {
   "puddlestuff.functions_autonumbering": {
     "fields": [
-      "__selected"
+      "track"
     ], 
     "arguments": [
       1, 
       false, 
-      1
+      2
     ]
   }, 
   "puddlestuff.functions_formatValue": {
