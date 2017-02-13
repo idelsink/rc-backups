@@ -7,6 +7,8 @@
     # nice diff in commits between branches eg.
     # `diffbranch master..devel` will give some stuff
     diffbranch = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    # show the diff in the words instead of full lines
+    diffw = diff --color-words
     ##############
     f = fetch
     fo = fetch origin
