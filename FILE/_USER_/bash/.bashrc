@@ -87,6 +87,10 @@ PS1+="\$(git_branch)"           # prints current branch
 PS1+="\[$RS\]"   # '#' for root, else '$'
 PS1+="\$ "
 
+# GCC coloring (by having this clang coloring is also enabled)
+export GCC_COLORS
+GCC_COLORS="error=${FRED}:warning=${FMAG}:note=${FCYN}:caret=${FGRN}:locus=\033[:quote=\033["
+
 # include aliases
 if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
