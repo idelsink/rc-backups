@@ -8,3 +8,6 @@ end
 document qquit
 Quit without asking for confirmation.
 end
+
+# Set the focus on the commandline (if tui mode was on)
+focus cmd
