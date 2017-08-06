@@ -19,6 +19,10 @@ alias   fuck='sudo $(history -p \!\!)'
 alias   reload-bashrc='. ~/.bashrc'
 alias   dirs='dirs -v'
 
+# gdb
+alias gdb='gdb -quiet'
+alias arm-none-eabi-gdb='arm-none-eabi-gdb -quiet'
+
 # include aliases with specific system aliases
 if [ -f ~/.bash_aliases_system ]; then
         . ~/.bash_aliases_system
