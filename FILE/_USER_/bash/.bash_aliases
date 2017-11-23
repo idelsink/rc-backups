@@ -23,10 +23,17 @@ alias   dirs='dirs -v'
 alias gdb='gdb -quiet'
 alias arm-none-eabi-gdb='arm-none-eabi-gdb -quiet'
 
+alias xdo='xdg-open'
+
+alias ip='ip -c'
+
 # docker
 alias docker_rm_containers='docker rm $(docker ps -a -q)' # Delete all containers
 alias docker_rm_images='docker rmi $(docker images -q)'   # Delete all images
 alias docker_rm_all='docker_rm_containers ; docker_rm_images'
+
+# package updates
+alias dnfu='sudo dnf upgrade --refresh'
 
 # include aliases with specific system aliases
 if [ -f ~/.bash_aliases_system ]; then
