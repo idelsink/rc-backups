@@ -91,6 +91,15 @@ PS1+="\$ "
 export GCC_COLORS
 GCC_COLORS="error=${FRED}:warning=${FMAG}:note=${FCYN}:caret=${FGRN}:locus=\033[:quote=\033["
 
+if [ -x "$(command -v powerline-shell)" ]; then
+  function _update_ps1() {
+    PS1="$(powerline-shell $?)"
+  }
+  if [ "$TERM" != "linux" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+  fi
+fi
+
 # include aliases
 if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
