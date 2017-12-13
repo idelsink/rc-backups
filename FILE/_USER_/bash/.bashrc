@@ -77,6 +77,16 @@ function git_branch {
     fi
 }
 
+# Function to check if atom needs an update
+function update-atom {
+  ATOM_INSTALLED_VERSION=$(rpm -qi atom | grep "Version" |  cut -d ':' -f 2 | cut -d ' ' -f 2)
+  ATOM_LATEST_VERSION=$(curl -sL "https://api.github.com/repos/atom/atom/releases/latest" | grep -E "https.*atom-amd64.tar.gz" | cut -d '"' -f 4 | cut -d '/' -f 8 | sed 's/v//g')
+
+  if [[ $ATOM_INSTALLED_VERSION < $ATOM_LATEST_VERSION ]]; then
+    sudo dnf install https://github.com/atom/atom/releases/download/v${ATOM_LATEST_VERSION}/atom.x86_64.rpm
+  fi
+}
+
 # PS1
 # [user@host workdir-basename](git repo)$
 # PS1="[\u@\h \W]"
@@ -91,7 +101,8 @@ PS1+="\$ "
 export GCC_COLORS
 GCC_COLORS="error=${FRED}:warning=${FMAG}:note=${FCYN}:caret=${FGRN}:locus=\033[:quote=\033["
 
-if [ -x "$(command -v powerline-shell)" ]; then
+POWERLINE_SHELL_ENABLED=true # option to enable/disable powerline shell (reload the terminal after change)
+if [[ $POWERLINE_SHELL_ENABLED == "true" ]] && [ -x "$(command -v powerline-shell)" ]; then
   function _update_ps1() {
     PS1="$(powerline-shell $?)"
   }
