@@ -39,6 +39,10 @@ alias docker-rm-all='docker_rm_containers ; docker_rm_images'
 # package updates
 alias dnfu='sudo dnf upgrade --refresh'
 
+# Set screen commands
+alias home-dual='xrandr --output DP-1 --primary --mode 3440x1440 --pos 0x0 --output HDMI-0 --mode 1920x1080 --pos 3440x180'
+alias home-single='xrandr --output HDMI-0 --primary --mode 1920x1080 --output DP-1 --mode 1920x1080 --same-as HDMI-0'
+
 # include aliases with specific system aliases
 if [ -f ~/.bash_aliases_system ]; then
         . ~/.bash_aliases_system
