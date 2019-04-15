@@ -9,5 +9,7 @@
     ],
     "cwd": {
         "mode": "dironly"
-    }
+    },
+    "mode": "patched",
+    "theme": "default"
 }
